@@ -1,0 +1,184 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+	font-family: 'Bangers', cursive;
+  font-family: 'Knewave', cursive;
+}
+
+
+.container {
+  position: relative;
+  height:339px;
+  width: 100%;
+  background-repeat: no-repeat;
+  animation: bgcolor 1s ease-in 5s forwards;
+  animation-fill-mode: both;
+  background-size: cover;
+}
+
+
+@keyframes bgcolor {
+  from {
+    background-image: url('img/bg.jpg');
+  }
+  to {
+    
+    background-image: url('img/bg2.jpg');
+
+  }
+}
+
+
+#inner{
+  width: 100%;
+  height: 100%;
+  border: 0px solid black;
+  margin: auto;
+  overflow:hidden
+}
+
+#cloud{
+  width:20px;
+  height:50px;
+  position: relative;
+  top: -100px;
+  animation: move 5s linear 0s;
+  animation-fill-mode: both;
+
+
+}
+@keyframes move{
+	0%  {margin-left: 505px;}
+	25%  {margin-left: 400px;}
+  50%  {margin-left: 300px;}
+  75%  {margin-left: 200px;}
+  95%  {margin-left: 100px;}
+	100%  {margin-left: -880px;}
+}
+
+#surf{
+
+  margin-left: 40%;
+  width:20px;
+  height:50px;
+  position: relative;
+  margin-top: -80px;
+  animation: surfmove 1s linear, swing ease-in-out 1s infinite alternate,surfmoveout 1s 4500ms forwards;
+  transform: rotate(45deg);
+  display: inline-block;
+}
+@keyframes surfmove{
+	0% {margin-top: 100px; opacity: 0;}
+	100% {margin-top: -80px; opacity: 1;}
+}
+
+@keyframes swing {
+    0% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
+}
+
+@keyframes surfmoveout {
+    0% { margin-left: 365px; }
+    100% { margin-left: -500px; 
+      animation-play-state: paused;}
+}
+
+
+.text1{
+    color: white;
+    font-size: 70px;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+	  text-shadow: 4px 3px 7px #2a1908;
+    animation: text1moveout 1s 4500ms forwards;
+}
+
+@keyframes text1moveout {
+    100% { margin-right: -200px; 
+    display:none;}
+}
+
+#text1:after {
+  content:"PIHA";
+  animation: changetext 10s linear infinite;
+  display: inline-block;
+}
+
+@keyframes changetext {
+	0% { content: "PIHA"; }
+  50% { content: "Beach"; color: rgb(241, 137, 0)}
+}
+
+
+.text2{
+    color: white;
+    font-size: 30px;
+
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+	  text-shadow: 4px 3px 7px #2a1908;
+    animation: 2 text2 5s ease-in 5s; 
+    animation-fill-mode: forwards;
+    position: relative;
+    /*one animation should have a loop with two repeats*/
+    display: inline-block;
+    visibility:hidden;
+  
+}
+
+@keyframes text2{
+    10%{
+        color: black;
+        margin-bottom: -40px;
+		    font-size: 30px;
+        visibility: visible;
+    }
+    30%{
+        letter-spacing: 5px;
+        margin-bottom: -40px;
+		    font-size: 20px;
+        }
+    80%{
+        letter-spacing: 1px;
+        margin-bottom: -40px;
+		    font-size: 30px;
+    }
+    100%{
+        letter-spacing: 1px;
+        margin-bottom: -40px;
+		    font-size: 30px;
+        visibility: visible;
+    }
+}
+
+
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  border-radius: 25px;
+  background: #73AD21;
+  padding: 10px;
+  width: auto;
+  visibility:hidden;
+  animation: textstudent 5s ease-in 9s infinite; 
+  
+}
+
+@keyframes textstudent{
+ 
+ 10%{
+  visibility: visible;
+  color: white;
+ }
+
+ 100%{
+  color: black;   
+  visibility: visible;
+ }
+
+
+}

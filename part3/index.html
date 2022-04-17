@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Piha Lodge - Accommodation booking</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <link href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./js/booking.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-11 col-sm-9 col-md-9 col-lg-9 col-xl-9 text-center p-0 mt-9 mb-9">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h2 id="heading"><i class="fa fa-leaf" aria-hidden="true"></i> Piha Lodge</h2>
+                    <p>Accomedation booking system</p>
+                    <form id="msform"  style="padding: 20px;">
+                        <!-- progressbar -->
+                        <ul id="progressbar">
+                            <li class="active" id="bookdate"><strong>Booking date</strong></li>
+                            <li id="roomtypes"><strong>Room Types</strong></li>
+                            <li id="personal"><strong>Personal details</strong></li>
+                            <li id="payment"><strong>Payment</strong></li>
+                            <li id="confirm"><strong>Finish</strong></li>
+
+                        </ul>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div> <br> <!-- fieldsets -->
+                        
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Booking date</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 1 - 5</h2>
+                                    </div>
+                                </div>
+
+
+                              
+                                <label class="fieldlabels" for="name">Check-In: *</label> <input type="text"
+                                    id="datepicker_checkin"  data-provide="datepicker" placeholder="Check in date"/>
+
+                                <label class="fieldlabels" for="address">Check-Out: *</label> <input type="text"
+                                    id="datepicker_checkout" data-provide="datepicker" placeholder="Check out date" />
+
+
+                                <label class="fieldlabels" for="quantity">Number of People: *</label>
+                                <div class='quantity' style="display: flex;flex-direction: row;    height: 50px;">
+
+                                    <label class="fieldlabels" style="margin-right: 20px;" for="quantity">Adults:
+                                    </label>
+
+                                    <input type='button' value='-' class='qtyminus minus' style="padding: unset;"
+                                        field='quantity' />
+                                    <input type='number' min="1" style="text-align: center;padding: unset;"
+                                        name='quantity' value='1' class='qty' id="adults" />
+                                    <input type='button' value='+' class='qtyplus plus' style="padding: unset;"
+                                        field='quantity' />
+
+                                    <label class="fieldlabels" style="margin-left:10px;margin-right: 20px;"
+                                        for="quantity">Children: </label>
+                                    <input type='button' value='-' class='qtyminus minus' style="padding: unset;"
+                                        field='quantity' />
+                                    <input type='number' min="0" style="text-align: center;padding: unset;"
+                                        name='quantity' value='0' class='qty' id="children" />
+                                    <input type='button' value='+' class='qtyplus plus' style="padding: unset;"
+                                        field='quantity' />
+
+                            </div>
+
+
+
+
+                            </div> <input type="button" name="next" class="next action-button" value="Next" />
+                        </fieldset>
+
+
+
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Room Types</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 2 - 5</h2>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="row justify-content-center" id="roomtype">
+                                    <div class="column">
+                                        <label>
+                                            <input type="radio" name="test" value="small" checked>
+                                            <img style="border-radius: 5%;margin-left: 10px;margin-right: 10px;margin-bottom: 10px;"
+                                                src="./img/room1.jpg" width="200px">
+                                            <div style="text-align: center;" class="caption">Suite Room <span
+                                                    style="font-weight: bold;color: #cd0000;">$150/night</span></div>
+                                        </label>
+                                    </div>
+                                    <div class="column">
+                                        <label>
+                                            <input type="radio" name="test" value="big">
+                                            <img style="border-radius: 5%;margin-left: 10px;margin-right: 10px;margin-bottom: 10px;"
+                                                src="./img/room2.jpg" width="200px">
+                                            <div style="text-align: center;" class="caption">Deluxe Room <span
+                                                    style="font-weight: bold;color: #cd0000;">$190/night</span></div>
+                                        </label>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Add-ons</h2>
+                                    </div>
+                                </div>
+
+
+                                <label style="margin-left: 20px;" ;>
+                                    <input style="width: auto;margin-bottom: 0px;" type="checkbox" id="breakfastNp">
+                                    <i class="fa fa-cutlery"></i> Breakfast
+                                </label>
+                                <label style="margin-left: 20px;" ;>
+                                    <input style="width: auto;margin-bottom: 0px;" type="checkbox" id="smokingNp">
+                                    <i class="fa-solid fa-ban-smoking"></i> Non-smoking
+                                </label>
+                                <label style="margin-left: 20px;" ;>
+                                    <input style="width: auto;margin-bottom: 0px;" type="checkbox" id="cookigNp">
+                                    <i class="fa-solid fa-kitchen-set"></i> Cooking facilities
+                                </label>
+
+                                <label style="margin-left: 20px;" ;>
+                                    <input style="width: auto;margin-bottom: 0px;" type="checkbox" id="swimNp">
+                                    <i class="fa-solid fa-person-swimming"></i> Swimming equipment
+                                </label>
+                                <br>
+                                <div style="width: 100%;">
+                                <label style="margin-left: 20px;" ;>
+                                    <i class="fa-solid fa-mattress-pillow"></i> Extra piliows 
+                                    <input type="range" id="piliowNp" value="0" name="extrapiliows" min="0" max="3"
+                                        style="vertical-align: middle; width: 30%; margin-bottom: 0;padding: 0;" oninput="num.value=this.value">
+                                        <span><output
+                                            id="num" style="vertical-align: middle;">0</output></span>
+                                         
+                                </label>
+                                </div>
+                                <br>
+                                <label style="margin-left: 20px;" ;>
+                                    When you check out we have a T-Shirt as a souvenir which color would you prefer?:
+                                    <input type="color" value="#00abff" class="p-0 border-0 bg-transparent rounded"
+                                        style="width: 30px;height: 30px;" id="tshirtNp">
+                                </label>
+                                <br>
+                                <label class=" fieldlabels">Additional notes:</label>
+                                <textarea id="additionalNp" rows="2" cols="40"></textarea>
+                               
+
+                            </div> <input type="button" name="next" class="next action-button" value="Next" /> <input
+                                type="button" name="previous" class="previous action-button-previous"
+                                value="Previous" />
+                        </fieldset>
+
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Personal Information:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 3 - 5</h2>
+                                    </div>
+                                </div>
+                                <label class="fieldlabels">First Name: *</label>
+                                <div>
+                                <select id="titlename" style="background-color: #ECEFF1; float: left; width:15%; padding: 8px 15px 8px 15px;border: 1px solid #ccc;">
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Mrs</option>
+                                    <option value="Ms">Ms</option>
+                                    <option value="Miss">Miss</option>
+                                </select>
+                                <input type="text" style="width: 83%;float: right;" name="fname" placeholder="First Name" id="fnameNp" />
+                                </div>
+                                <label class="fieldlabels">Last Name: *</label>
+                                <input type="text" name="lname" placeholder="Last Name" id="lnameNp" />
+
+                                <label class="fieldlabels">Contact No.: *</label>
+                                <input type="number" name="phone" placeholder="Contact No." id="phoneNp" />
+
+                                <label class="fieldlabels">Email: *</label>
+                                <input type="email" name="email" placeholder="Email" id="emailNp" />
+
+                            </div> <input type="button" name="next" class="next action-button" value="Next" /> <input
+                                type="button" name="previous" class="previous action-button-previous"
+                                value="Previous" />
+                        </fieldset>
+
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Payment:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 4 - 5</h2>
+                                    </div>
+                                </div> <label class="fieldlabels">Card Number: *</label> <input type="text"
+                                    name="cnumber"  placeholder="0000-0000-0000-0000" minlength="19" maxlength="19" id="cardnumberNp" />
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="fieldlabels">Expiration Date: *</label> <input type="text"
+                                            name="expnumber" placeholder="MM/YY" minlength="5" maxlength="5" id="expirationnumberNp" />
+                                    </div>
+                                    <div class="col">
+                                        <label class="fieldlabels">CVV Code: *</label> <input type="text"
+                                            name="cvvnumber"placeholder="&#9679;&#9679;&#9679;"  minlength="3" maxlength="3" id="cvvnumberNp" />
+                                    </div>
+                                </div>
+                                <label>
+                                    <input style="width: auto;margin-bottom: 0px;" type="checkbox" id="agreerule">
+                                   I agree to the local native conservation initiative agreement
+                                </label>
+                            </div> <input type="button" name="next" id="submitform" class="next action-button submit" value="Submit" disabled/>
+                            <input type="button" name="previous" class="previous action-button-previous"
+                                value="Previous" />
+                        </fieldset>
+
+
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Finish:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 5 - 5</h2>
+                                    </div>
+                                </div> 
+                                <br>
+                                <h3 class="purple-text text-center"><i class="fa fa-info-circle"></i> Your booking confirmation</h2> <br>
+                                <!-- <div class="row justify-content-center">
+                                    <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image">
+                                    </div>
+                                </div> -->
+                                
+                                <div class="d-flex flex-column">
+                                    <div class="p-2">
+                                        <h2 class="fs-title"><i class="fa fa-address-card"></i> Main guest details:</h2>
+                                        <div class="p-2"><span id="nameDp"></span></div>
+                                        <div class="p-2">Email address : <span id="emailDp"></span></div>
+                                        <div class="p-2">Contact no. : <span id="phoneDp"></span></div>
+                                        <div class="p-2">Number of guest : <span id="guestDp"></span></div>
+                                    </div>
+                                    <div class="p-2">
+                                    <h2 class="fs-title"><i class="fa fa-bookmark"></i> Booking details:</h2>
+                                    </div>
+                                    <div class="p-2 d-flex">
+                                        <div>
+                                            <div class="p-2">Check In : <span id="checkinDp"></span></div>
+                                            <div class="p-2">Check Out : <span id="checkoutDp"></span></div>
+                                            <div class="p-2">Cooking facilities : <span id="cookigDp"></span></div>
+                                            <div class="p-2">Extra piliows : <span id="piliowDp"></span></div>
+                                        </div>
+                                        <div style="margin-left: 5rem;">
+                                            <div class="p-2">Room type : <span id="roomtypeDp"></span></div>
+                                            <div class="p-2">Non-Smoking : <span id="smokingDp"></span></div>
+                                            <div class="p-2">Swimming equipment : <span id="swimDp"></span></div>
+                                            <div class="p-2">T-shirt color : <span style="border-radius: 20px; position: absolute;margin: 3px;" id="tshirtDp">
+                                                <div id="tshirtcolor" style="width: 50px;height: 20px;"></div>
+                                            </span></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="p-2">
+                                        <h2 class="fs-title"><i class="fa fa-credit-card-alt"></i> Payment detail</h2>
+                                        <div class="p-2">Card Number : <span id="cardnumberDp"></span></div>
+                                    </div>
+                                    <div class="p-2">
+                                        <h2 class="fs-title"><i class="fa fa-usd"></i> Total Amount</h2>
+                                        <div class="p-2"><span id="totalamount"></span><br><small>Price includes all taxes</small></div>
+                                       
+                                    </div>
+                                    <div class="p-2">
+                                        <h2 class="fs-title"><i class="fa fa-commenting"></i> Additional notes</h2>
+                                        <div class="p-2"><span id="additionalDp"></span></div>
+                                    </div>
+                                </div>
+                                <br>
+                                
+                            </div>
+                           
+                            <button style="float: unset;width: 200px;" class="action-button" onclick="window.print();return false;">Print this page</button>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
